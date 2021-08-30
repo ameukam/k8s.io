@@ -42,7 +42,7 @@ data "google_organization" "org" {
 }
 
 module "project" {
-  source = "../../../modules/gke-project"
+  source = "../modules/gke-project"
   project_id            = local.project_id
   project_name          = local.project_id
 }
@@ -237,7 +237,7 @@ resource "google_compute_address" "ghproxy_metrics_address" {
 }
 
 module "prow_build_cluster" {
-  source = "../../../modules/gke-cluster"
+  source = "../modules/gke-cluster"
   project_name      = local.project_id
   cluster_name      = local.cluster_name
   cluster_location  = local.cluster_location
@@ -249,7 +249,7 @@ module "prow_build_cluster" {
 }
 
 module "prow_build_nodepool" {
-  source = "../../../modules/gke-nodepool"
+  source = "../modules/gke-nodepool"
   project_name    = local.project_id
   cluster_name    = module.prow_build_cluster.cluster.name
   location        = module.prow_build_cluster.cluster.location
