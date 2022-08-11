@@ -112,6 +112,8 @@ readonly PROD_PROJECT="k8s-artifacts-prod"
 PROD_IMAGE_PROMOTER_SCANNING_SERVICE_ACCOUNT="$(svc_acct_email "${PROD_PROJECT}" "${IMAGE_PROMOTER_VULN_SCANNING_SVCACCT}")"
 readonly PROD_IMAGE_PROMOTER_SCANNING_SERVICE_ACCOUNT
 
+readonly AR_LOCATION="us-central1"
+
 #
 # Staging functions
 #
@@ -180,6 +182,10 @@ function ensure_staging_project() {
     color 3 "Ensuring staging GCR repo: gcr.io/${project}"
     ensure_staging_gcr_repo "${project}" "${writers}" 2>&1 | indent
 
+    # Ensure staging project AR
+    color 3 "Ensuring staging GCR repo: ${AR_LOCATION}-docker.pkg.dev/${project}/images"
+    ensure_staging_ar_repo "${project}" "${writers}" 2>&1 | indent
+
     # Ensure staging project GCS
 
     color 3 "Ensuring staging GCS bucket: ${staging_bucket}"
@@ -234,6 +240,21 @@ function ensure_staging_gcs_bucket() {
       color 6 "Ensuring GCS access logs enabled for ${bucket} in project: ${project}"
       ensure_gcs_bucket_logging "${bucket}"
     fi
+}
+
+function ensure_staging_ar_repo() {
+    if [ $# != 2 ] || [ -z "$1" ] || [ -z "$2" ]; then
+        echo "${FUNCNAME[0]}(project, writers) requires 2 arguments" >&2
+        return 1
+    fi
+    local project="${1}"
+    local writers="${2}"
+
+    color 6 "Ensuring a Artifact Registry Docker repo exists for project: ${project}"
+    ensure_ar_repo "${project}" "${AR_LOCATION}"
+
+    color 6 "Ensuring AR admins can admin AR for project: ${project}"
+    empower_ar_admins "${project}" "${AR_LOCATION}"
 }
 
 # Ensure a GCR repo is provisioned in the given staging project, with
