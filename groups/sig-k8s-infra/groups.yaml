@@ -354,6 +354,16 @@ groups:
       - james@munnelly.eu
       - sig-k8s-infra-leads@kubernetes.io
 
+  - email-id: k8s-infra-flasty-admins@kubernetes.io
+    name: k8s-infra-fastly-admins
+    description: |-
+      ACL for Fastly account admins
+    settings:
+      ReconcileMembers: "true"
+      WhoCanPostMessage: "ANYONE_CAN_POST"
+    members:
+      - sig-k8s-infra-leads@kubernetes.io
+
   - email-id: k8s-infra-gcp-accounting@kubernetes.io
     name: k8s-infra-gcp-accounting
     description: |-
