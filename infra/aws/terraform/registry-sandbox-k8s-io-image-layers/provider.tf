@@ -20,3 +20,9 @@ provider "aws" {
   region  = "us-west-2"
   alias   = "origin"
 }
+
+provider "aws" {
+  profile = "default"
+  region  = "us-east-2"
+  alias   = "prow"
+}
