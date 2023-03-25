@@ -180,6 +180,10 @@ function ensure_staging_project() {
     color 3 "Ensuring staging GCR repo: gcr.io/${project}"
     ensure_staging_gcr_repo "${project}" "${writers}" 2>&1 | indent
 
+    # Ensure staging project AR
+    color 3 "Ensuring staging GCR repo: gcr.io/${project}"
+    ensure_staging_ar_repo "${project}" "${writers}" 2>&1 | indent
+
     # Ensure staging project GCS
 
     color 3 "Ensuring staging GCS bucket: ${staging_bucket}"
@@ -263,6 +267,29 @@ function ensure_staging_gcr_repo() {
 
     color 6 "Ensuring GCS access logs enabled for GCR bucket in project: ${project}"
     ensure_gcs_bucket_logging "${gcr_bucket}"
+}
+
+# Ensure a GCR repo is provisioned in the given staging project, with
+# appropriate permissions for the given group and GCR admins
+# with auto-deletion enabled and appropriate permissions for the
+# given group and GCS admins
+#
+# $1: The GCP project (e.g. k8s-staging-foo)
+# $2: The group to grant write access (e.g. k8s-infra-staging-foo@kubernetes.io)
+function ensure_staging_ar_repo() {
+    if [ $# != 2 ] || [ -z "$1" ] || [ -z "$2" ]; then
+        echo "${FUNCNAME[0]}(project, writers) requires 2 arguments" >&2
+        return 1
+    fi
+    local project="${1}"
+    local writers="${2}"
+    local region="us-central1"
+
+    color 6 "Ensuring a AR repo exists for project: ${project} in ${region}"
+    ensure_ar_repo "${project}" "${region}"
+
+    color 6 "Ensuring GCR admins can admin AR repository for project: ${project}"
+    empower_ar_admins "${project}" "${region}"
 }
 
 # Ensure GCB is setup for the given staging project, by ensuring the
