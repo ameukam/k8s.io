@@ -45,6 +45,7 @@ resource "fastly_service_vcl" "files" {
     error_threshold       = 5
   }
 
+  /*
   healthcheck {
     name = "GCS Health"
 
@@ -57,7 +58,7 @@ resource "fastly_service_vcl" "files" {
     initial        = 2
     window         = 4
   }
-
+*/
   snippet {
     content  = <<-EOT
       if (req.url.path ~ "^/release/") {
@@ -154,25 +155,25 @@ resource "fastly_service_vcl" "files" {
     name = "Authenticate to GCS requests"
     type = "init"
     content = templatefile("${path.module}/vcl/gcs-auth.vcl", {
-      access_key = ""
-      secret_key = ""
+      access_key     = data.google_secret_manager_secret_version_access.gcs_reader_access_key.secret_data
+      secret_key     = data.google_secret_manager_secret_version_access.gcs_reader_secret_key.secret_data
       backend_bucket = var.bucket
-      region = "us-central1"
-    }
+      region         = "us-central1"
+      }
     )
   }
 
   snippet {
-    name = "GCS Auth - MISS"
-    type = "miss"
+    name    = "GCS Auth - MISS"
+    type    = "miss"
     content = <<-EOT
       call set_google_auth_header;
     EOT
   }
 
   snippet {
-    name = "GCS Auth - PASS"
-    type = "pass"
+    name    = "GCS Auth - PASS"
+    type    = "pass"
     content = <<-EOT
       call set_google_auth_header;
     EOT
