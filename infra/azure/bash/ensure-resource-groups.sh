@@ -25,17 +25,17 @@ set -o pipefail
 SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
 
 if ! [[ -x "$(command -v jq)" ]]; then
-  echo "Please install jq. https://stedolan.github.io/jq/download/.  Aborting."
+  err "Please install jq. https://stedolan.github.io/jq/download/.  Aborting."
   exit 1
 fi
 
 if ! [[ -x "$(command -v az)" ]]; then
-  echo "Please install Azure CLI. https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest.  Aborting."
+  err "Please install Azure CLI. https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest.  Aborting."
   exit 1
 fi
 
 RESOURCE_GROUP="k8s-infra-tf-states-rg"
-RESOURCE_GROUP_LOCATION=$(az group show --name $RESOURCE_GROUP --output tsv --query 'location')
+RESOURCE_GROUP_LOCATION=$(RESOURCE_GROUP_LOCATION:-"douala")
 TAGS="${TAGS:-"DO-NOT-DELETE=true CONTACT=sig-k8s-infra-leads@kubernetes.io"}"
 
 # storage accounts rules: https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules#microsoftstorage
@@ -44,6 +44,27 @@ readonly TERRAFORM_STATE_BUCKET_ENTRIES=(
   k8sinfratfstatesub
   k8sinfratfstatekops
 )
+
+function err() {
+  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*" >&2
+}
+
+function check_region() {
+  local region=$1
+
+  if [[ -z "$region" ]]; then
+    err "Error: no region provided"
+    exit 1
+  if
+
+  region_name=$(az account list-locations -o tsv --query "[?name=='$region'].name")
+  if [[ -z "$region_name" ]]; then
+    err "[$region] is not a valid Azure region. Here are the valid regions:" >&2
+    echo "List of valid regions:"
+    az account list-locations --output table --query "[].name"
+    exit 1
+  fi
+}
 
 function ensure_terraform_state_containers() {
   echo "Ensure storage accounts exists"
@@ -75,6 +96,7 @@ function ensure_terraform_state_containers() {
 }
 
 function main() {
+  check_region "$RESOURCE_GROUP_LOCATION"
   if [ "$(az group exists --name $RESOURCE_GROUP)" = false ]; then
     echo "creating resource group $RESOURCE_GROUP..."
     az group create -n "$RESOURCE_GROUP" -l "$LOCATION" --tags "${TAGS}" -o none
@@ -94,4 +116,5 @@ function main() {
   ensure_terraform_state_containers
 }
 
+echo "tata"
 main
