@@ -16,7 +16,7 @@ limitations under the License.
 
 module "prow_network" {
   source              = "Azure/avm-res-network-virtualnetwork/azurerm"
-  version             = "0.6.0"
+  version             = "0.10.0"
   name                = "vnet-${azurerm_resource_group.rg.name}"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
@@ -36,7 +36,7 @@ module "prow_network" {
 
 module "private_dns_zones" {
   source                          = "Azure/avm-ptn-network-private-link-private-dns-zones/azurerm"
-  version                         = "0.4.0"
+  version                         = "0.18.0"
   location                        = azurerm_resource_group.rg.location
   resource_group_name             = azurerm_resource_group.rg.name
   resource_group_creation_enabled = false

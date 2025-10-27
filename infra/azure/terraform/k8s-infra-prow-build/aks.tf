@@ -16,7 +16,7 @@ limitations under the License.
 
 module "prow_build" {
   source                    = "Azure/aks/azurerm"
-  version                   = "9.2.0"
+  version                   = "11.0.0"
   resource_group_name       = azurerm_resource_group.rg.name
   location                  = azurerm_resource_group.rg.location
   sku_tier                  = "Standard"
@@ -27,8 +27,8 @@ module "prow_build" {
   role_based_access_control_enabled = true
   workload_identity_enabled         = true
   oidc_issuer_enabled               = true
-  rbac_aad                          = true
-  rbac_aad_managed                  = true
+  rbac_aad_azure_rbac_enabled       = true
+  rbac_aad_tenant_id                = data.azurerm_client_config.current.tenant_id
   local_account_disabled            = false
 
   identity_type = "UserAssigned"
@@ -47,8 +47,8 @@ module "prow_build" {
   network_plugin      = "azure"
   network_policy      = "cilium"
 
-  enable_auto_scaling = true
-  node_resource_group = "MC_${local.prefix}-prow-build-${azurerm_resource_group.rg.location}-aks-rg"
+  auto_scaling_enabled = true
+  node_resource_group  = "MC_${local.prefix}-prow-build-${azurerm_resource_group.rg.location}-aks-rg"
 
   auto_scaler_profile_enabled                     = true
   auto_scaler_profile_balance_similar_node_groups = true
@@ -65,7 +65,9 @@ module "prow_build" {
   only_critical_addons_enabled = true
   temporary_name_for_rotation  = "tmpnodepool1"
   agents_tags                  = var.common_tags
-  vnet_subnet_id               = module.prow_network.subnets.prow_build_aks.resource_id
+  vnet_subnet = {
+    id = module.prow_network.resource.id
+  }
 
   storage_profile_enabled             = true
   storage_profile_blob_driver_enabled = false
