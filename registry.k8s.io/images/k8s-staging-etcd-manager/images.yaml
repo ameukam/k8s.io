@@ -81,3 +81,17 @@
   dmap:
     "sha256:3b8eeeef21b10f32ccd5ca58394d5f48fd3cacc40b6db7160e52fd7f0af5290d": ["v3.0.20250917"]
 
+# v3.0.20260227
+- name: etcd-backup
+  dmap:
+    "sha256:dd3ef90d6210a0c41c884eec3d358903cefbde87f500a8742c4b1c5c47b98bf8": ["v3.0.20260227"]
+- name: etcd-dump
+  dmap:
+    "sha256:7ba04c779ce1fd5a1a6b5019898e8ac30fa0ed71e5ab4949f0fab910896a285f": ["v3.0.20260227"]
+- name: etcd-manager-ctl
+  dmap:
+    "sha256:81a4665241387470ebd113d6ab6eb21fd3a508af291a8ac0adf7f3272e1435d9": ["v3.0.20260227"]
+- name: etcd-manager-slim
+  dmap:
+    "sha256:326c02a5c884c16148f4a1c7992c412db1e6f14ad04189e9a5cb36b0412eadd5": ["v3.0.20260227"]
+
