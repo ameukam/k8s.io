@@ -131,6 +131,7 @@ groups:
       - polynomial@redhat.com
       - rstarovoitov@google.com
       - pkwiecinski@google.com
+      - mikolajtr@google.com
       # sig-scalability leads
       - dordel@google.com
       - marcel.zieba@isovalent.com
