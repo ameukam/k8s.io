@@ -29,6 +29,7 @@
     "sha256:db269e6337456f787819b9f2b91dd159a38711bd68e6919b61ab286c19ff3fe8": ["v1.3.0"]
     "sha256:1f68b215770e8a5d0b2bf8e4027809c895660ba99ce406f7c0d50dcdbfb3996f": ["v1.3.1-rc.1"]
     "sha256:5195d8d8a4db995c1fd1dd4f98592d36972a84772d3a3640de560ba2915ea8cd": ["v1.3.1"]
+    "sha256:f6c0dddbf66bf328c141a177ae6420503adc764d90e454626484de562cc060ee": ["v1.4.0"]
 - name: charts/body-based-routing
   dmap:
     "sha256:fd9ab40eca8ba8d283a2d40d23e36d78a9bae3a3147d6dc70d0df4d32645fa71": ["v0.3.0-rc.1"]
@@ -60,6 +61,7 @@
     "sha256:7d5b5037454f85790ac93f2bdd13c5a3cbee8e582aa4f2e9c7a131ea885c7334": ["v1.3.0"]
     "sha256:f3ba294a0359462430c09aed3399269eecbc77bdc7b256ce0168c4099ef8434f": ["v1.3.1-rc.1"]
     "sha256:aedc6a36cdf1bf34d41886c525275b26711ce15996affc39d4eb94cd1f0f2dc8": ["v1.3.1"]
+    "sha256:8117a4eac5216e8e5e345da0a48bb71dc403fddb3a42889342c52cde70a57ec5": ["v1.4.0"]
 - name: epp
   dmap:
     "sha256:a40d7c85b6ea5e8e25188edb614308c54ec0b495682c4e3a481d01074fa2468e": ["v0.1.0-rc.1"]
@@ -95,6 +97,7 @@
     "sha256:ff65450cce15fa960cb62a2630f31bf00c3ad6f0217d6f79420eb215aa64f8ac": ["v1.3.0"]
     "sha256:067d6d3d3adddb88726bd9d7d441820d76bac3673c1ef934a30757a1fcf8fd5a": ["v1.3.1-rc.1"]
     "sha256:3329615b99badc550a1c347c2d5460578e726623cc3a22eed3ea7622eb791152": ["v1.3.1"]
+    "sha256:6f7d0a5bfea473b3fbd939c20c6613573cfcfce622275bad8c16e63295e6928c": ["v1.4.0"]
 - name: bbr
   dmap:
     "sha256:a54d537a6fb0a274c71ce559afdd1683e809fcc373edbdebe65707188ba75344": ["v0.3.0-rc.1"]
@@ -126,6 +129,7 @@
     "sha256:f58f03aa1042b81780543e6d7036b063a30d7d32a3fae2f7153498a64e593e18": ["v1.3.0"]
     "sha256:339a6bae316ec9b2acb6c5dec94260659b2c1213e2628d39f95202922e9460bf": ["v1.3.1-rc.1"]
     "sha256:81751c60b5fd142bd803db92d6526849cda4fa09b49d0e8c6190fdfa01a4c58e": ["v1.3.1"]
+    "sha256:7713c9682b6ee5c8ac1286f418e9a425a6bb9b8e801ba18408846761bd0b34ad": ["v1.4.0"]
 
 ## Deprecated, no new images will be added, but old ones will be kept.
 - name: lora-syncer
