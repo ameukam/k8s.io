@@ -46,8 +46,7 @@ module "gcb_bucket" {
 
 // Create gs://k8s-testgrid-config to store K8s TestGrid config.
 module "testgrid_config_bucket" {
-  source  = "terraform-google-modules/cloud-storage/google//modules/simple_bucket"
-  version = "~> 5"
+  source = "github.com/terraform-google-modules/terraform-google-cloud-storage//modules/simple_bucket?ref=v11.1.2"
 
   name       = "k8s-testgrid-config"
   project_id = module.project.project_id
@@ -71,6 +70,36 @@ module "testgrid_config_bucket" {
     },
     {
       // Let K8s TestGrid canary read configs from this bucket. 
+      role   = "roles/storage.objectViewer"
+      member = "serviceAccount:testgrid-canary@k8s-testgrid.iam.gserviceaccount.com"
+    },
+    {
+      // Let K8s TestGrid production read configs from this bucket.
+      role   = "roles/storage.objectViewer"
+      member = "serviceAccount:updater@k8s-testgrid.iam.gserviceaccount.com"
+    }
+  ]
+}
+
+// Create gs://k8s-testgrid-config-external to store TestGrid configs.
+// - testgrid.prow.k8s.io (community-operated, K8s project configs only)
+// See: https://github.com/kubernetes/k8s.io/issues/8973
+module "testgrid_config_external_bucket" {
+  source  = "terraform-google-modules/cloud-storage/google//modules/simple_bucket"
+  version = "~> 5"
+
+  name       = "k8s-testgrid-config-external"
+  project_id = module.project.project_id
+  location   = "us-central1"
+
+  iam_members = [
+    {
+      // Let the upload job write to this bucket.
+      role   = "roles/storage.objectAdmin"
+      member = "serviceAccount:k8s-testgrid-config-updater@k8s-infra-prow-build-trusted.iam.gserviceaccount.com"
+    },
+    {
+      // Let K8s TestGrid canary read configs from this bucket.
       role   = "roles/storage.objectViewer"
       member = "serviceAccount:testgrid-canary@k8s-testgrid.iam.gserviceaccount.com"
     },
