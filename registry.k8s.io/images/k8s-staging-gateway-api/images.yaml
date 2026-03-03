@@ -18,3 +18,4 @@
 - name: echo-basic
   dmap:
     "sha256:79fa51c368ac16ef6bad70bd2e0176c306a4f6e5f6f5ffe54a869ba5590ee642": ["v20251204-v1.4.1"]
+    "sha256:fcbdfab85b3c4441e2fe8fdedd382904332ccb8253a5d51f6006c16903e7ae40": ["v1.5.0"]
