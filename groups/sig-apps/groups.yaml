@@ -66,6 +66,16 @@ groups:
       - justinsb@google.com
       - soltysh@gmail.com
 
+  - email-id: k8s-infra-staging-mcp-lifecycle-operator@kubernetes.io
+    name: k8s-infra-staging-mcp-lifecycle-operator
+    description: |-
+      ACL for staging MCP Lifecycle Operator
+    settings:
+      ReconcileMembers: "true"
+    members:
+      - eduardoa@nvidia.com
+      - brownwm@us.ibm.com
+
   - email-id: k8s-infra-staging-jobset@kubernetes.io
     name: k8s-infra-staging-jobset
     description: |-
