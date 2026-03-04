@@ -42,6 +42,7 @@ locals {
     kueue                           = "group:k8s-infra-staging-kueue@kubernetes.io"
     lws                             = "group:k8s-infra-staging-lws@kubernetes.io"
     maintainer-tools                = "group:k8s-infra-staging-maintainer-tools@kubernetes.io"
+    mcp-lifecycle-operator          = "group:k8s-infra-staging-mcp-lifecycle-operator@kubernetes.io"
     minikube                        = "group:k8s-infra-staging-minikube@kubernetes.io"
     node-readiness-controller       = "group:k8s-infra-staging-nrc@kubernetes.io"
     gateway-api-inference-extension = "group:sig-apps-leads@kubernetes.io"
