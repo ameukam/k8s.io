@@ -62,6 +62,9 @@
     "sha256:f3ba294a0359462430c09aed3399269eecbc77bdc7b256ce0168c4099ef8434f": ["v1.3.1-rc.1"]
     "sha256:aedc6a36cdf1bf34d41886c525275b26711ce15996affc39d4eb94cd1f0f2dc8": ["v1.3.1"]
     "sha256:ec4c7f424d7ecd1ece2c297f78bf43e45c4ef63392151042649c012befa75c95": ["v1.4.0-rc.1"]
+- name: charts/standalone
+  dmap:
+    "sha256:a9efa0422cca0e692a463d3191c6865a406f424d8e39df7cb7a5d16bad912561": ["v1.4.0-rc.1"]
 - name: epp
   dmap:
     "sha256:a40d7c85b6ea5e8e25188edb614308c54ec0b495682c4e3a481d01074fa2468e": ["v0.1.0-rc.1"]
