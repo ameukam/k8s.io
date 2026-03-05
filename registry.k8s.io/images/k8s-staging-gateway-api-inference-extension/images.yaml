@@ -133,6 +133,12 @@
     "sha256:339a6bae316ec9b2acb6c5dec94260659b2c1213e2628d39f95202922e9460bf": ["v1.3.1-rc.1"]
     "sha256:81751c60b5fd142bd803db92d6526849cda4fa09b49d0e8c6190fdfa01a4c58e": ["v1.3.1"]
     "sha256:b3e600a89954da07f8767ab2fd747d78efcd4e4a9cfbcf9437ad03c10bd116be": ["v1.4.0-rc.1"]
+- name: latency-prediction-server
+  dmap:
+    "sha256:cdee389374e3f3447e4e35c8953ee0904cbb3d289ba328a6d33273ecc9a37661": ["v1.4.0-rc.1"]
+- name: latency-training-server
+  dmap:
+    "sha256:7f6adf446b592d12f968b2487b152d7fe43342d7f4bad51cfa0005d251abf21b": ["v1.4.0-rc.1"]
 
 ## Deprecated, no new images will be added, but old ones will be kept.
 - name: lora-syncer
