@@ -452,6 +452,7 @@
     "sha256:809e498502a0cc524ac9fc2d56bb1d045bce23b479b0acc44be160d41a091882": ["v2.2.5"]
     "sha256:8452bebe28560f968ac299c1ad02645c1fdaa21429ea9042c1ab518015333625": ["v2.2.6"]
     "sha256:25758395ae93b5ba12c3c9f496f9d592e854286ae1ca275aaa9897f0e88157eb": ["v2.2.7"]
+    "sha256:f1eadf65f9f9817430f25bcfbbc6fe7b96f5b9eeb2b454e8efd2e404b1613464": ["v2.2.8"]
 
 # Ingress NGINX: Chart
 - name: charts/ingress-nginx
