@@ -67,7 +67,7 @@ groups:
       - soltysh@gmail.com
 
   - email-id: k8s-infra-staging-mcp-lifecycle-op@kubernetes.io
-    name: k8s-infra-staging-mcp-lifecycle-operator
+    name: k8s-infra-staging-mcp-lifecycle-op
     description: |-
       ACL for staging MCP Lifecycle Operator
     settings:
