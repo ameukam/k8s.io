@@ -1,4 +1,4 @@
-# google group for us-central1-docker.pkg.dev/k8s-staging-images/mcp-lifecycle-operator is k8s-infra-staging-mcp-lifecycle-operator@kubernetes.io
+# google group for us-central1-docker.pkg.dev/k8s-staging-images/mcp-lifecycle-operator is k8s-infra-staging-mcp-lifecycle-op@kubernetes.io
 registries:
   - name: us-central1-docker.pkg.dev/k8s-staging-images/mcp-lifecycle-operator
     src: true
