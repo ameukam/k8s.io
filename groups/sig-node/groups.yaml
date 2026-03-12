@@ -45,6 +45,7 @@ groups:
       - s.kanzhelev@gmail.com
       - pehunt@redhat.com
       # additional admins follow, who are not in sig-node-leads
+      - ajaysundar.k@gmail.com
     settings:
       WhoCanPostMessage: "ANYONE_CAN_POST"
       MessageModerationLevel: "MODERATE_NONE"
