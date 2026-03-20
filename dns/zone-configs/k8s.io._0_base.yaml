@@ -589,4 +589,7 @@ dranet.sigs:
 kindnet.sigs:
   type: CNAME
   value: kubernetes-sigs.github.io.
-
+# Exploding Clusters game
+exploding:
+  type: A
+  value: 34.117.227.184
