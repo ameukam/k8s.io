@@ -628,6 +628,11 @@
     "sha256:0657100db443caff9283bba314bc25ac1b304c92f24380babf28a866e4539f8e": ["v3.4.42", "3.4.42-0"]
     "sha256:29acc69c9ef1f5027ceef27e1cbd00c3130bc40c2d5ac8ab7247a996f65272cd": ["v3.4.42-arm64"]
     "sha256:10487db2bdae4ac2f320959c491e021e915956a17c758c1faae150bceba1fdd3": ["v3.4.42-ppc64le"]
+    "sha256:b67c0b87ded6f1c7cb7860120fa23f03d34ab77911e5e1ee4a118c74adfd0842": ["v3.5.28", "3.5.28-0"]
+    "sha256:c48d23f0ee9a5a2dabeda5fc73699c89c10dad0dceb61d9d78d36bc72ee99d07": ["v3.5.28-amd64"]
+    "sha256:1d996069eccfad125961c953838f0e4b0e9b012ed5cf7eff099f24750521986f": ["v3.5.28-arm64"]
+    "sha256:c05ffb68bf0e684057edf82aa9a1e3f8d8120a7c3c1a08ee82cc91dfdd2b1641": ["v3.5.28-ppc64le"]
+    "sha256:5bb16564b5f797ef3b977ff401202e1c2e3a445b66f3bab4e7adfe9ecdbefbde": ["v3.5.28-s390x"]
 - name: etcd-empty-dir-cleanup
   dmap:
     "sha256:f805272b4422efa92e20789295c343ed26ff36ddc4f70eeb5d7890d6b758b0fc": ["3.4.7.0"]
