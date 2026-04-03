@@ -29,6 +29,7 @@ locals {
     nv-dra-driver-gpu               = "group:k8s-infra-staging-nv-dra-driver-gpu@kubernetes.io"
     etcd                            = "group:k8s-infra-staging-etcd@kubernetes.io"
     etcd-manager                    = "group:k8s-infra-staging-etcd-manager@kubernetes.io"
+    gateway-api                     = "group:k8s-infra-staging-gateway-api@kubernetes.io"
     headlamp                        = "group:k8s-infra-staging-headlamp@kubernetes.io"
     inference-perf                  = "group:k8s-infra-staging-inference-perf@kubernetes.io"
     infra-tools                     = "group:k8s-infra-staging-infra-tools@kubernetes.io"
