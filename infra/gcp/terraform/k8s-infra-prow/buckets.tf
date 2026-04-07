@@ -16,7 +16,7 @@ limitations under the License.
 
 module "gcb_bucket" {
   source  = "terraform-google-modules/cloud-storage/google//modules/simple_bucket"
-  version = "~> 11.0"
+  version = "~> 11.1"
 
   name       = "k8s-infra-prow-gcb"
   project_id = module.project.project_id
@@ -86,7 +86,7 @@ module "testgrid_config_bucket" {
 // See: https://github.com/kubernetes/k8s.io/issues/8973
 module "testgrid_config_external_bucket" {
   source  = "terraform-google-modules/cloud-storage/google//modules/simple_bucket"
-  version = "~> 5"
+  version = "~> 12.1"
 
   name       = "k8s-testgrid-config-external"
   project_id = module.project.project_id
@@ -111,10 +111,10 @@ module "testgrid_config_external_bucket" {
   ]
 }
 
-// Create gs://k8s-ci-logs to store logs from Prow jobs.
+// Create gs://kubernetes-ci-logs to store logs from Prow jobs.
 module "prow_bucket" {
   source  = "terraform-google-modules/cloud-storage/google//modules/simple_bucket"
-  version = "~> 5"
+  version = "~> 11.1"
 
   name       = "kubernetes-ci-logs"
   project_id = module.project.project_id
@@ -172,4 +172,31 @@ resource "google_storage_notification" "notification" {
 resource "google_pubsub_topic" "kubernetes_ci_logs_topic" {
   name    = "kubernetes-ci-logs-updates"
   project = module.project.project_id
+}
+
+// Create gs://k8s-security-ci-logs private bucket to store logs from Prow jobs running in
+// the kubernetes-security org.
+module "prow_security_bucket" {
+  source  = "terraform-google-modules/cloud-storage/google//modules/simple_bucket"
+  version = "~> 11.1"
+
+  name       = "k8s-security-ci-logs"
+  project_id = module.project.project_id
+  location   = "us-central1"
+  lifecycle_rules = [{
+    action = {
+      type = "Delete"
+    }
+    condition = {
+      age        = 14 # 14d
+      with_state = "ANY"
+    }
+  }]
+
+  iam_members = [
+    {
+      role   = "roles/storage.objectAdmin"
+      member = "serviceAccount:${google_service_account.prow.email}"
+    },
+  ]
 }
