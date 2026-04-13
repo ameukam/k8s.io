@@ -181,7 +181,7 @@ restrictions:
       - "^k8s-infra-push-cri-tools@kubernetes.io$"
       - "^k8s-infra-staging-cri-tools@kubernetes.io$"
       - "^k8s-infra-staging-dra-driver-cpu@kubernetes.io$"
-      - "^k8s-infra-staging-nv-dra-driver-gpu@kubernetes.io$"
+      - "^k8s-infra-staging-dra-driver-nvidia@kubernetes.io$"
       - "^k8s-infra-staging-kmm@kubernetes.io$"
       - "^k8s-infra-staging-nfd@kubernetes.io$"
       - "^k8s-infra-staging-npd@kubernetes.io$"

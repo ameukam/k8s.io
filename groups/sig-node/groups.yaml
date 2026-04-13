@@ -180,15 +180,16 @@ groups:
       - fromani@redhat.com
       - sig-node-leads@kubernetes.io
 
-  - email-id: k8s-infra-staging-nv-dra-driver-gpu@kubernetes.io
-    name: k8s-infra-staging-nv-dra-driver-gpu
+  - email-id: k8s-infra-staging-dra-driver-nvidia@kubernetes.io
+    name: k8s-infra-staging-dra-driver-nvidia
     description: |-
-      ACL for pushing nv-dra-driver-gpu artifacts
+      ACL for pushing dra-driver-nvidia artifacts
     settings:
       ReconcileMembers: "true"
     members:
       - davanum@gmail.com
       - klueska@gmail.com
+      - shivamerla@nvidia.com
       - sig-node-leads@kubernetes.io
 
   - email-id: k8s-infra-staging-nrc@kubernetes.io
