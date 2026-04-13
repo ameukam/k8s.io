@@ -154,6 +154,7 @@ sub vcl_deliver {
   unset resp.http.x-goog-generation;
   unset resp.http.x-goog-hash;
   unset resp.http.x-goog-meta-goog-reserved-file-mtime;
+  unset resp.http.x-goog-meta-sha256;
   unset resp.http.x-goog-metageneration;
   unset resp.http.x-goog-storage-class;
   unset resp.http.x-goog-stored-content-encoding;
