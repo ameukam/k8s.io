@@ -27,8 +27,8 @@ groups:
       - antonio.ojea.garcia@gmail.com
       - bowei@google.com
       - danwinship@redhat.com
+      - guicassolato@gmail.com
       - michael.zappa@gmail.com
-      - sutt@redhat.com
       - thockin@google.com
     settings:
       AllowWebPosting: "true"
@@ -46,8 +46,8 @@ groups:
       - antonio.ojea.garcia@gmail.com
       - bowei@google.com
       - danwinship@redhat.com
+      - guicassolato@gmail.com
       - michael.zappa@gmail.com
-      - sutt@redhat.com
       - thockin@google.com
     settings:
       WhoCanJoin: "ANYONE_CAN_JOIN"
