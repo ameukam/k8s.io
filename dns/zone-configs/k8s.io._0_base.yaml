@@ -589,6 +589,10 @@ dranet.sigs:
 kindnet.sigs:
   type: CNAME
   value: kubernetes-sigs.github.io.
+# https://github.com/kubernetes-sigs/mcp-lifecycle-operator docs (@aliok @ArangoGutierrez @matzew @mikebrow @mrunalp @soltysh)
+mcp-lifecycle-operator.sigs:
+  type: CNAME
+  value: mcp-lifecycle-operator.netlify.app.
 # Exploding Clusters game
 exploding:
   type: A
