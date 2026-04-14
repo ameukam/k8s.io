@@ -117,27 +117,26 @@ _acme-challenge.auth:
   type: TXT
   value: -4bYksesL3_5_RAceZwCCgcRtrsErNj1sWCCnDtwMcU
 
-# artifacts.k8s.io is for the (under development) binary artifact serving.
-# The IP points to a GCLB in front of CloudRun in the k8s-infra-porche-prod project.
+# DNS configuration for Fastly service artifacts.k8s.io
+# Reach out to sig-k8s-infra-leads@kubernetes.io for any issue
 artifacts:
-  type: A
-  ttl: 300 # short TTL in case of need to rollback
-  values:
-  - 34.110.216.12
-
-# DNS challenge for issuing (transition) TLS certificate
+  - type: A
+    values:
+      - 151.101.1.91
+      - 151.101.65.91
+      - 151.101.129.91
+      - 151.101.193.91
+  - type: AAAA
+    values:
+      - 2a04:4e42::347
+      - 2a04:4e42:200::347
+      - 2a04:4e42:400::347
+      - 2a04:4e42:600::347
 _acme-challenge.artifacts:
   type: CNAME
-  value: c72842dd-afa6-4ce7-b722-546baf89701f.5.authorize.certificatemanager.goog.
+  value: 6hc5e8ju4k04k7upt8.fastly-validations.com.
 
-# Sandbox artifacts redirector service.
-artifacts-sandbox:
-  - type: A
-    value: 34.110.218.166
-  - type: AAAA
-    value: "2600:1901:0:3b54::"
-
-# DNS configuration for Fastly service cdn.dl.k8s.io
+# DNS configuration for Fastly service dl.k8s.io
 # Reach out to sig-k8s-infra-leads@kubernetes.io for any issue
 dl:
   - type: A
