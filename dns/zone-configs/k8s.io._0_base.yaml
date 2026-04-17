@@ -585,6 +585,10 @@ kube-agentic-networking.sigs:
 dranet.sigs:
   type: CNAME
   value: kubernetes-sigs.github.io.
+# https://github.com/kubernetes-sigs/dra-driver-nvidia-gpu docs (@klueska, @jgehrcke, @dims)
+dra-driver-nvidia-gpu.sigs:
+  type: CNAME
+  value: kubernetes-sigs-dra-driver-nvidia-gpu.netlify.app.
 # https://github.com/kubernetes-sigs/kindnet docs (@aojea)
 kindnet.sigs:
   type: CNAME
