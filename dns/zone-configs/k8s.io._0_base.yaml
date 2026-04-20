@@ -580,10 +580,10 @@ node-readiness-controller.sigs:
 kube-agentic-networking.sigs:
   type: CNAME
   value: kube-agentic-networking.netlify.app.
-# https://github.com/kubernetes-sigs/dranet docs (@aojea)
+# https://github.com/kubernetes-sigs/dranet docs (@aojea, @gauravkghildiyal)
 dranet.sigs:
   type: CNAME
-  value: kubernetes-sigs.github.io.
+  value: dranet.netlify.app.
 # https://github.com/kubernetes-sigs/dra-driver-nvidia-gpu docs (@klueska, @jgehrcke, @dims)
 dra-driver-nvidia-gpu.sigs:
   type: CNAME
