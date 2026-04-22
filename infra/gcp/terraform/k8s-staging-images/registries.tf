@@ -24,6 +24,7 @@ locals {
     cloud-provider-kind             = "group:k8s-infra-staging-kind@kubernetes.io"
     contributor-site                = "group:k8s-infra-staging-contributor-site@kubernetes.io"
     cluster-capacity                = "group:k8s-infra-staging-cluster-capacity@kubernetes.io"
+    dns                             = "group:k8s-infra-staging-dns@kubernetes.io"
     dra-driver-cpu                  = "group:k8s-infra-staging-dra-driver-cpu@kubernetes.io"
     dra-example-driver              = "group:k8s-infra-staging-dra-example-driver@kubernetes.io"
     dra-driver-nvidia               = "group:k8s-infra-staging-dra-driver-nvidia@kubernetes.io"
