@@ -218,14 +218,10 @@ class RedirTest(HTTPTestCase):
     def test_yum(self):
         for base in ('yum.k8s.io', 'yum.kubernetes.io'):
             self.assert_temp_redirect(base, 'https://kubernetes.io/blog/2023/08/31/legacy-package-repository-deprecation/')
-            self.assert_temp_redirect(base + '/$id',
-                'https://packages.cloud.google.com/yum/$id', id=rand_num())
 
     def test_apt(self):
         for base in ('apt.k8s.io', 'apt.kubernetes.io'):
             self.assert_temp_redirect(base, 'https://kubernetes.io/blog/2023/08/31/legacy-package-repository-deprecation/')
-            self.assert_temp_redirect(base + '/$id',
-                'https://packages.cloud.google.com/apt/$id', id=rand_num())
 
     def test_packages(self):
         for base in ('packages.k8s.io', 'packages.kubernetes.io', 'pkgs.k8s.io', 'pkgs.kubernetes.io'):
@@ -277,37 +273,6 @@ class RedirTest(HTTPTestCase):
             self.assert_temp_redirect(base + '/$path',
                 'https://github.com/kubernetes/community/tree/master/committee-code-of-conduct/$path',
                 path=path)
-
-    def test_dl(self):
-        for base in ('dl.k8s.io', 'dl.kubernetes.io'):
-            # Valid release version numbers
-            for extra in ('', '-alpha.$rc_ver', '-beta.$rc_ver', '-rc.$rc_ver'):
-                self.assert_temp_redirect(
-                    base + '/v$major_ver.$minor_ver.$patch_ver' + extra + '/$path',
-                    'https://cdn.dl.k8s.io/release/v$major_ver.$minor_ver.$patch_ver' + extra + '/$path',
-                    major_ver=rand_num(), minor_ver=rand_num(), patch_ver=rand_num(), rc_ver=rand_num(), path=rand_num())
-            # Not a release version
-            self.assert_temp_redirect(
-                base + '/v8/engine',
-                'https://cdn.dl.k8s.io/v8/engine')
-            # Not a valid release version (gamma)
-            self.assert_temp_redirect(
-                base + '/v1.2.3-gamma.4/kubernetes.tar.gz',
-                'https://cdn.dl.k8s.io/v1.2.3-gamma.4/kubernetes.tar.gz')
-            # A few /ci/ tests
-            self.assert_temp_redirect(
-                base + '/ci/v$ver/$path',
-                'https://storage.googleapis.com/k8s-release-dev/ci/v$ver/$path',
-                ver=rand_num(), path=rand_num())
-            self.assert_temp_redirect(
-                base + '/ci/latest-$ver.txt',
-                'https://storage.googleapis.com/k8s-release-dev/ci/latest-$ver.txt',
-                ver=rand_num())
-            # Base case
-            self.assert_temp_redirect(
-                base + '/$path',
-                'https://cdn.dl.k8s.io/$path',
-                path=rand_num())
 
     def test_docs(self):
         for base in ('docs.k8s.io', 'docs.kubernetes.io'):

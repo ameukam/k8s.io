@@ -162,7 +162,6 @@ data:
         listen 80;
 
         rewrite ^/$         https://kubernetes.io/blog/2023/08/31/legacy-package-repository-deprecation/ redirect;
-        rewrite ^/(.*)?$    https://packages.cloud.google.com/apt/$1 redirect;
       }
 
       server {
@@ -170,7 +169,6 @@ data:
         listen 80;
 
         rewrite ^/$         https://kubernetes.io/blog/2023/08/31/legacy-package-repository-deprecation/ redirect;
-        rewrite ^/(.*)?$    https://packages.cloud.google.com/yum/$1 redirect;
       }
 
       server {
@@ -215,12 +213,6 @@ data:
         listen 80;
 
         rewrite ^/(.*)?$    https://github.com/kubernetes/community/tree/master/committee-code-of-conduct/$1 redirect;
-      }
-      server {
-        server_name dl.kubernetes.io;
-        listen 80;
-
-        rewrite ^/(.*)?$    https://dl.k8s.io/$1 redirect;
       }
       server {
         server_name docs.k8s.io docs.kubernetes.io;
