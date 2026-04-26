@@ -55,9 +55,9 @@ spec:
         app: boskos
       namespace: test-pods
       annotations:
-        prometheus.io/scrape: "true"                                                                                                                                                
-        prometheus.io/port: "9090"                                                                                                                                                  
-        prometheus.io/path: "/metrics" 
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9090"
+        prometheus.io/path: "/metrics"
     spec:
       serviceAccountName: boskos
       terminationGracePeriodSeconds: 30
@@ -108,4 +108,3 @@ spec:
     targetPort: 9090
   loadBalancerIP: 35.225.208.117 # k8s-infra-prow-build/boskos-metrics
   type: LoadBalancer
-  
