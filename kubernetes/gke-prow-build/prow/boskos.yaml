@@ -54,6 +54,20 @@ spec:
       labels:
         app: boskos
       namespace: test-pods
+      annotations:
+        ad.datadoghq.com/boskos.checks: |
+          {
+            "openmetrics": {
+              "init_config": {},
+              "instances": [
+                {
+                  "openmetrics_endpoint": "http://%%host%%:9090/metrics",
+                  "namespace": "boskos",
+                  "metrics": ["boskos_resources"]
+                }
+              ]
+            }
+          }
     spec:
       serviceAccountName: boskos
       terminationGracePeriodSeconds: 30
