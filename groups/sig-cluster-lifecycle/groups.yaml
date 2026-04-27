@@ -65,6 +65,7 @@ groups:
       - yuvaraj-balaji-rao.kakaraparthi@broadcom.com
       - christi.schlotter@gmail.com
       - furkat.gofurov@suse.com
+      - fabrizio.pandini@gmail.com
       # CAPI release team members
       - muhammad.adil.ghaffar@est.tech
       - cahillsf9@gmail.com
@@ -267,6 +268,7 @@ groups:
       - gab.satchi@broadcom.com
       - naadir.jeewa@broadcom.com
       - sagar.muchhal@broadcom.com
+      - fabrizio.pandini@gmail.com
 
   - email-id: k8s-infra-staging-cluster-api@kubernetes.io
     name: k8s-infra-staging-cluster-api
