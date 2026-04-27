@@ -154,6 +154,7 @@ restrictions:
       - "^sig-instrumentation-leads@kubernetes.io$"
   - path: "sig-multicluster/groups.yaml"
     allowedGroups:
+      - "^k8s-infra-staging-cluster-inventory-api@kubernetes.io$"
       - "^sig-multicluster@kubernetes.io$"
       - "^sig-multicluster-leads@kubernetes.io$"
   - path: "sig-network/groups.yaml"
