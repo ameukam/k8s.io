@@ -37,3 +37,13 @@ resource "google_compute_address" "utility_ingress" {
   subnetwork         = each.key == "IPV6" ? module.vpc.subnets["us-central1/subnet-01"].id : null
   ipv6_endpoint_type = each.key == "IPV6" ? "NETLB" : null
 }
+
+resource "google_compute_address" "kops_discovery_ingress" {
+  for_each           = toset(["IPV4", "IPV6"])
+  name               = "kops-discovery-ingress-${lower(substr(each.key, 2, 2))}"
+  project            = module.project.project_id
+  region             = "us-central1"
+  ip_version         = each.key
+  subnetwork         = each.key == "IPV6" ? module.vpc.subnets["us-central1/subnet-01"].id : null
+  ipv6_endpoint_type = each.key == "IPV6" ? "NETLB" : null
+}
