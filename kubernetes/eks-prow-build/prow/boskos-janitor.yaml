@@ -31,7 +31,7 @@ spec:
       serviceAccountName: aws-boskos-janitor
       containers:
         - name: aws-boskos-janitor
-          image: gcr.io/k8s-staging-boskos/aws-janitor-boskos:v20260416-7220f0f
+          image: gcr.io/k8s-staging-boskos/aws-janitor-boskos:v20260418-520262e
           args:
             - --boskos-url=http://boskos.test-pods.svc.cluster.local.
             - --resource-type=aws-account
