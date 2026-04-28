@@ -47,3 +47,7 @@ agents:
       operator: Equal
       value: arm64
       effect: NoSchedule
+    - key: node-group
+      operator: Equal
+      value: stable
+      effect: NoSchedule
