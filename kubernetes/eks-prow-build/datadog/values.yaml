@@ -42,8 +42,5 @@ datadog:
 clusterAgent:
   tokenExistingSecret: datadog-secret
 agents:
-  tolerations: # datadog supports arm64
-    - key: kubernetes.io/arch
-      operator: Equal
-      value: arm64
-      effect: NoSchedule
+  tolerations: # tolerate all taints
+      operator: Exists
