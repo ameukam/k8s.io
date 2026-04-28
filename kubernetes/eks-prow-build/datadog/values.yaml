@@ -42,5 +42,5 @@ datadog:
 clusterAgent:
   tokenExistingSecret: datadog-secret
 agents:
-  tolerations: # tolerate all taints
-      operator: Exists
+  tolerations:
+    - operator: Exists
