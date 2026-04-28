@@ -288,6 +288,13 @@ atlantis:
   - type: AAAA
     value: "2600:1900:4000:627b:8000::"
 
+# kOps discovery service (https://github.com/kubernetes/kops/tree/master/discovery)
+discovery.kops:
+  - type: A
+    value: 34.66.218.218
+  - type: AAAA
+    value: "2600:1900:4000:627b:8000::"
+
 monitoring-eks.prow:
   type: CNAME
   value: a263543bde23d465583081052e18b3e3-1240977898.us-east-2.elb.amazonaws.com.
